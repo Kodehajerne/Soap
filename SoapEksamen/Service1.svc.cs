@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,21 +13,25 @@ namespace SoapEksamen
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        private const string ConnectionString =
+            "Server=tcp:myservereasj.database.windows.net,1433;Initial Catalog=mydatabase;Persist Security Info=False;User ID=Serveradmin;Password=Test12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        string Dato = DateTime.Now.ToShortTimeString();
 
-        public string GetTemp(string Temperatur)
+        public int InsertFeedbackDB(string temperatur, string luftfugtighed, string dato)
         {
-            
-            return Temperatur;
-        }
-
-        public string GetHumidity(string Humidity)
-        {
-            return Humidity;
-        }
-
-        public string GetTid(string Timer, string Minutter)
-        {
-            return $"Tiden {Timer}:{Minutter}";
+            const string insertStudent = "Insert into vejrstation (Temperatur, Luftfugtighed, Dato) values (@Temperatur, @Luftfugtighed, @Dato )";
+            using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))
+            {
+                databaseConnection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStudent, databaseConnection))
+                {
+                    insertCommand.Parameters.AddWithValue("@Temperatur", temperatur);
+                    insertCommand.Parameters.AddWithValue("@Luftfugtighed", luftfugtighed);
+                    insertCommand.Parameters.AddWithValue("@Dato", Dato);
+                    int rowsAffected = insertCommand.ExecuteNonQuery();
+                    return rowsAffected;
+                }
+            }
         }
     }
 }

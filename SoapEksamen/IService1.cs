@@ -14,13 +14,8 @@ namespace SoapEksamen
     {
 
         [OperationContract]
-        string GetTemp(string Temperatur);
+        int InsertFeedbackDB(string temperatur, string luftfugtighed, string dato);
 
-        [OperationContract]
-        string GetHumidity(string Humidity);
-
-        [OperationContract]
-        string GetTid(string Timer, string Minutter);
 
         // TODO: Add your service operations here
     }
