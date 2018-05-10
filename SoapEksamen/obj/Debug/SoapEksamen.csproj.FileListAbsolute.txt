@@ -12,3 +12,10 @@ C:\Users\Dunk\Documents\Github\Unsolved opgaver\Christoffer\Soap\SoapEksamen\obj
 C:\Users\Dunk\Documents\Github\Unsolved opgaver\Christoffer\Soap\SoapEksamen\bin\SoapEksamen.dll.config
 C:\Users\Dunk\Documents\Github\Unsolved opgaver\Christoffer\Soap\SoapEksamen\bin\SoapEksamen.dll
 C:\Users\Dunk\Documents\Github\Unsolved opgaver\Christoffer\Soap\SoapEksamen\bin\SoapEksamen.pdb
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\bin\SoapEksamen.dll.config
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\bin\SoapEksamen.dll
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\bin\SoapEksamen.pdb
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\obj\Debug\SoapEksamen.csprojResolveAssemblyReference.cache
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\obj\Debug\SoapEksamen.csproj.CoreCompileInputs.cache
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\obj\Debug\SoapEksamen.dll
+C:\Users\Bruger\Documents\GitHub\Soap\SoapEksamen\obj\Debug\SoapEksamen.pdb
