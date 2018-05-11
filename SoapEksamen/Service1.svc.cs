@@ -18,8 +18,8 @@ namespace SoapEksamen
             "Server=tcp:myservereasj.database.windows.net,1433;Initial Catalog=mydatabase;Persist Security Info=False;User ID=Serveradmin;Password=Test12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string Dato = DateTime.Now.ToShortTimeString();
 
-        // Dette er en metode som sender vores data vidre til databasen.
-        public int InsertFeedbackDB(string temperatur, string luftfugtighed)
+        // Dette er en metode som sender vores data videre til databasen.
+        public int InsertDataToDatabase(string temperatur, string luftfugtighed)
         {
             const string insertStudent = "Insert into vejrstation (Temperatur, Luftfugtighed, Dato) values (@Temperatur, @Luftfugtighed, @Dato )";
             using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))

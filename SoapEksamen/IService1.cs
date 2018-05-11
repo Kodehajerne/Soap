@@ -14,7 +14,7 @@ namespace SoapEksamen
     {
 
         [OperationContract]
-        int InsertFeedbackDB(string temperatur, string luftfugtighed);
+        int InsertDataToDatabase(string temperatur, string luftfugtighed);
 
 
         // TODO: Add your service operations here
