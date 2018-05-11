@@ -13,10 +13,12 @@ namespace SoapEksamen
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        // Dette er vores connection string, som indeholder alt den information vi skal bruge om databasen.
         private const string ConnectionString =
             "Server=tcp:myservereasj.database.windows.net,1433;Initial Catalog=mydatabase;Persist Security Info=False;User ID=Serveradmin;Password=Test12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string Dato = DateTime.Now.ToShortTimeString();
 
+        // Dette er en metode som sender vores data vidre til databasen.
         public int InsertFeedbackDB(string temperatur, string luftfugtighed)
         {
             const string insertStudent = "Insert into vejrstation (Temperatur, Luftfugtighed, Dato) values (@Temperatur, @Luftfugtighed, @Dato )";
@@ -25,7 +27,8 @@ namespace SoapEksamen
                 databaseConnection.Open();
                 using (SqlCommand insertCommand = new SqlCommand(insertStudent, databaseConnection))
                 {
-                    insertCommand.Parameters.AddWithValue("@Temperatur", temperatur);
+                    // @ fortæller hvilken table parameteren skal indsættes i, i databasen.
+                    insertCommand.Parameters.AddWithValue("@Temperatur", temperatur); 
                     insertCommand.Parameters.AddWithValue("@Luftfugtighed", luftfugtighed);
                     insertCommand.Parameters.AddWithValue("@Dato", Dato);
                     int rowsAffected = insertCommand.ExecuteNonQuery();
