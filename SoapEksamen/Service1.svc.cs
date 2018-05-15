@@ -21,11 +21,11 @@ namespace SoapEksamen
         // Dette er en metode som sender vores data videre til databasen.
         public int InsertDataToDatabase(string temperatur, string luftfugtighed)
         {
-            const string insertStudent = "Insert into vejrstation (Temperatur, Luftfugtighed, Dato) values (@Temperatur, @Luftfugtighed, @Dato )";
+            const string insert = "Insert into vejrstation (Temperatur, Luftfugtighed, Dato) values (@Temperatur, @Luftfugtighed, @Dato )";
             using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))
-            {
+   {         
                 databaseConnection.Open();
-                using (SqlCommand insertCommand = new SqlCommand(insertStudent, databaseConnection))
+                using (SqlCommand insertCommand = new SqlCommand(insert, databaseConnection))
                 {
                     // @ fortæller hvilken table parameteren skal indsættes i, i databasen.
                     insertCommand.Parameters.AddWithValue("@Temperatur", temperatur); 
