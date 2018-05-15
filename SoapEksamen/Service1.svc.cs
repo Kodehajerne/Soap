@@ -23,7 +23,7 @@ namespace SoapEksamen
         {
             const string insert = "Insert into vejrstation (Temperatur, Luftfugtighed, Dato) values (@Temperatur, @Luftfugtighed, @Dato )";
             using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))
-            {
+   {         
                 databaseConnection.Open();
                 using (SqlCommand insertCommand = new SqlCommand(insert, databaseConnection))
                 {
